@@ -144,6 +144,7 @@ func New(ctx context.Context, config *srvconfig.Config) (*Server, error) {
 		}
 		timeout.Set(key, d)
 	}
+	// plugins dir register already in moduele init func
 	loaded, err := LoadPlugins(ctx, config)
 	if err != nil {
 		return nil, err
@@ -476,6 +477,7 @@ func LoadPlugins(ctx context.Context, config *srvconfig.Config) ([]plugin.Regist
 	if path == "" {
 		path = filepath.Join(config.Root, "plugins")
 	}
+	// /var/lib/containerd
 	if count, err := dynamic.Load(path); err != nil {
 		return nil, err
 	} else if count > 0 || config.PluginDir != "" { //nolint:staticcheck
@@ -484,6 +486,7 @@ func LoadPlugins(ctx context.Context, config *srvconfig.Config) ([]plugin.Regist
 	}
 
 	clients := &proxyClients{}
+	// nil below when initial
 	for name, pp := range config.ProxyPlugins {
 		var (
 			t plugin.Type

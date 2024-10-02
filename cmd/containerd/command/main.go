@@ -204,6 +204,7 @@ can be used and modified as necessary as a custom configuration.`
 		go func() {
 			defer close(chsrv)
 
+			// load plugins and register into ttrpc and grpc
 			server, err := server.New(ctx, config)
 			if err != nil {
 				select {
@@ -225,6 +226,7 @@ can be used and modified as necessary as a custom configuration.`
 		}()
 
 		var server *server.Server
+		// wait server.New(ctx, config)
 		select {
 		case <-ctx.Done():
 			return ctx.Err()

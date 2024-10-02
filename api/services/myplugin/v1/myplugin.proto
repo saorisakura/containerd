@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package containerd.services.myplugin.v1;
+
+option go_package = "github.com/containerd/containerd/api/services/myplugin/v1;myplugin";
+
+service Myplugin {
+  rpc Ping(PingRequest) returns (PongResponse);
+}
+
+message PingRequest {
+  string msg = 1;
+}
+
+message PongResponse {
+  string msg = 2;
+}
