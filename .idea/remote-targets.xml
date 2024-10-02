@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="ecs-user@47.253.42.250:22" type="ssh/sftp" uuid="6196a5f3-e0a0-43f3-add4-3f7f400effae">
+        <config>
+          <option name="projectRootOnTarget" value="/home/ecs-user/containerd" />
+          <option name="serverName" value="ecs-user@47.253.42.250:22 key" />
+          <option name="useRsync" value="true" />
+        </config>
+        <ContributedStateBase type="GoLanguageRuntime">
+          <config>
+            <option name="goPath" value="/home/ecs-user/go" />
+            <option name="goRoot" value="/usr/local/go/bin/go" />
+            <option name="goVersion" value="go1.22.7 linux/amd64" />
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>
